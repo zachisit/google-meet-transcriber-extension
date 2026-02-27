@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Meet Scribe Pro",
+  "version": "2.0",
+  "permissions": ["storage", "activeTab", "notifications"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

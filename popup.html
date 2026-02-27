@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { width: 320px; font-family: 'Segoe UI', sans-serif; padding: 15px; background: #f9f9f9; }
+    h2 { font-size: 16px; color: #333; margin-top: 0; }
+    #preview { height: 150px; overflow-y: auto; background: #fff; border: 1px solid #ddd; padding: 10px; font-size: 11px; margin-bottom: 10px; white-space: pre-wrap; }
+    .btn-group { display: flex; gap: 10px; }
+    button { flex: 1; padding: 10px; cursor: pointer; border: none; border-radius: 4px; font-weight: bold; }
+    #download { background: #1a73e8; color: white; }
+    #clear { background: #ea4335; color: white; }
+  </style>
+</head>
+<body>
+  <h2>Meet Scribe Pro</h2>
+  <div id="preview">Waiting for captions...</div>
+  <div class="btn-group">
+    <button id="download">Save .txt</button>
+    <button id="clear">Clear</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
