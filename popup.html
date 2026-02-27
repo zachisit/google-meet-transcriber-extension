@@ -1,23 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet Scribe Pro</title>
   <style>
-    body { width: 320px; font-family: 'Segoe UI', sans-serif; padding: 15px; background: #f9f9f9; }
-    h2 { font-size: 16px; color: #333; margin-top: 0; }
-    #preview { height: 150px; overflow-y: auto; background: #fff; border: 1px solid #ddd; padding: 10px; font-size: 11px; margin-bottom: 10px; white-space: pre-wrap; }
-    .btn-group { display: flex; gap: 10px; }
-    button { flex: 1; padding: 10px; cursor: pointer; border: none; border-radius: 4px; font-weight: bold; }
-    #download { background: #1a73e8; color: white; }
-    #clear { background: #ea4335; color: white; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 340px;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #f0f4f9;
+      color: #1f2937;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a73e8;
+      letter-spacing: -0.2px;
+    }
+
+    #line-count {
+      font-size: 11px;
+      color: #6b7280;
+      background: #e5e7eb;
+      border-radius: 99px;
+      padding: 2px 8px;
+    }
+
+    .status {
+      font-size: 11px;
+      padding: 5px 9px;
+      border-radius: 5px;
+      min-height: 24px;
+    }
+    .status.info  { background: #e0f2fe; color: #0369a1; }
+    .status.ok    { background: #dcfce7; color: #15803d; }
+    .status.warn  { background: #fef9c3; color: #854d0e; }
+    .status.error { background: #fee2e2; color: #991b1b; }
+
+    #preview {
+      height: 170px;
+      overflow-y: auto;
+      background: #fff;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      padding: 9px 10px;
+      font-size: 11px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: #374151;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    button {
+      flex: 1;
+      padding: 9px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 12px;
+      transition: opacity 0.15s;
+    }
+    button:hover { opacity: 0.85; }
+    button:active { opacity: 0.7; }
+
+    #download { background: #1a73e8; color: #fff; }
+    #clear     { background: #ea4335; color: #fff; }
+
+    .auto-scroll-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: #6b7280;
+      user-select: none;
+      cursor: pointer;
+    }
+    .auto-scroll-row input { cursor: pointer; accent-color: #1a73e8; }
+
+    footer {
+      font-size: 10px;
+      color: #9ca3af;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  <h2>Meet Scribe Pro</h2>
-  <div id="preview">Waiting for captions...</div>
-  <div class="btn-group">
-    <button id="download">Save .txt</button>
-    <button id="clear">Clear</button>
+
+  <header>
+    <h2>🎙 Meet Scribe Pro</h2>
+    <span id="line-count">0 lines</span>
+  </header>
+
+  <div id="status" class="status info">Connecting…</div>
+
+  <div id="preview">Waiting for captions…</div>
+
+  <div class="controls">
+    <button id="download">⬇ Save .txt</button>
+    <button id="clear">✕ Clear</button>
   </div>
+
+  <label class="auto-scroll-row">
+    <input type="checkbox" id="auto-scroll" checked />
+    Auto-scroll to latest
+  </label>
+
+  <footer>Captions must be ON in Meet's toolbar (CC button)</footer>
+
   <script src="popup.js"></script>
 </body>
 </html>

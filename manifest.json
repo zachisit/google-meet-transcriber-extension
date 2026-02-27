@@ -1,10 +1,12 @@
 {
   "manifest_version": 3,
   "name": "Meet Scribe Pro",
-  "version": "2.0",
-  "permissions": ["storage", "activeTab", "notifications"],
+  "version": "3.0",
+  "description": "Captures Google Meet captions into a searchable, exportable transcript.",
+  "permissions": ["storage", "activeTab", "downloads", "tabs"],
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_title": "Meet Scribe Pro"
   },
   "content_scripts": [
     {
